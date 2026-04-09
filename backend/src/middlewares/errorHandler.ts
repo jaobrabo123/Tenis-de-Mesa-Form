@@ -71,7 +71,7 @@ const errorHandler: ErrorRequestHandler = (err: ErrorCustomVS, req: RequestCusto
             })
         });
 
-        status = 400;
+        status = 422;
         error = 'Campos inválidos.';
         customType = 'VS_VALIDATION';
     }

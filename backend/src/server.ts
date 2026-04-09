@@ -12,11 +12,12 @@ import errorHandler from '@middlewares/errorHandler';
 const port = process.env.PORT || 2923;
 const app = express();
 const server = http.createServer(app);
-app.set('trust proxy', true); // * This is important for deployment in services like Render.
+// app.set('trust proxy', 1); 
 
 // * Global Middlewares
 app.use(cookieParser());
 app.use(express.json());
+app.use(realIpHandler);
 app.use(RateLimit.general);
 app.use(cors(corsConfig));
 
@@ -25,6 +26,7 @@ app.use(cors(corsConfig));
 
 // * Importing Routes
 import routes from '@routes/index';
+import realIpHandler from '@middlewares/realIp';
 app.use(routes);
 
 // * Error handling

@@ -37,7 +37,7 @@ model cadastro {
     id              String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
     nome            String        @db.VarChar(150)
     dataNascimento  DateTime      @map("data_nascimento") @db.Date
-    emailContato    String        @map("email_contato") @db.VarChar(254)
+    emailContato    String        @map("email_contato") @db.VarChar(254) @unique
     telefone        String        @db.VarChar(11)
     categoria       Categoria
     modalidade      Modalidade
