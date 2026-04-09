@@ -30,7 +30,8 @@ export type ErrorType =
     | 'VS_AUTH_LIMITED_ACCESS'
     | 'VS_INVALID_FILE'
     | 'VS_CORS_BLOCK'
-    | 'VS_CONFIRM_TOKEN_REQUIRED';
+    | 'VS_CONFIRM_TOKEN_REQUIRED'
+    | 'VS_UNPROCESSABLE_ENTITY';
 
 export interface Meta {
     total?: number;

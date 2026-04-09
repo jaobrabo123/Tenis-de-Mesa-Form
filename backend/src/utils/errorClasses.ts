@@ -17,7 +17,7 @@ export class ValidationError extends ErrorVS {
   }
 }
 
-export class ForbiddenError extends ErrorVS {
+export class UnauthorizedError extends ErrorVS {
   readonly status = 403;
   constructor(message: string, type?: ErrorType){
     super(message, 'VS_UNAUTHORIZED', type);
@@ -61,7 +61,7 @@ export class ServerError extends ErrorVS {
 
 export default {
   ValidationError,
-  ForbiddenError,
+  UnauthorizedError,
   NotFoundError,
   ConflictError,
   InvalidCredentialsError,

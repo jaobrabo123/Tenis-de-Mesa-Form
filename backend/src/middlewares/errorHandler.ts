@@ -73,7 +73,7 @@ const errorHandler: ErrorRequestHandler = (err: ErrorCustomVS, req: RequestCusto
 
         status = 422;
         error = 'Campos inválidos.';
-        customType = 'VS_VALIDATION';
+        customType = 'VS_UNPROCESSABLE_ENTITY';
     }
     
     const type = customType! || http.STATUS_CODES[status] || 'Internal Server Error';

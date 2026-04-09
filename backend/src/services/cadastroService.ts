@@ -49,7 +49,8 @@ export default class CadastroService {
                 throw erro;
             }
         }
-
+        
+        throw new ServerError("Tente novamente mais tarde.");
     }
 
     static async vagasDisponiveis() {
