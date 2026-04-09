@@ -24,6 +24,7 @@ export default class CadastroService {
 
                     if(vagasDisponiveis <= 0) {
                         this.limiteAtingido = true;
+                        CadastroCache.setarTodasVagasPreenchidas();
                         throw new ValidationError("Limite de vagas atingido.");
                     }
 
