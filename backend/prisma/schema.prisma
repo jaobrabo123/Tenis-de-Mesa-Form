@@ -1,0 +1,47 @@
+generator client {
+    provider        = "prisma-client"
+    output          = "../src/generated/prisma"
+    previewFeatures = ["postgresqlExtensions"]
+    moduleFormat    = "cjs"
+}
+
+datasource db {
+    provider = "postgresql"
+}
+
+enum Categoria {
+    INICIANTE
+    INTERMEDIARIO
+    AVANCADO
+    JUVENIL
+    SENIOR
+
+    @@map("categoria")
+}
+
+enum Modalidade {
+    SIMPLES
+    DUPLAS
+
+    @@map("modalidade")
+}
+
+enum MaoDominante {
+    DESTRO
+    CANHOTO
+
+    @@map("mao_dominante")
+}
+
+model cadastro {
+    id              String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+    nome            String        @db.VarChar(150)
+    dataNascimento  DateTime      @map("data_nascimento") @db.Date
+    emailContato    String        @map("email_contato") @db.VarChar(254)
+    telefone        String        @db.VarChar(11)
+    categoria       Categoria
+    modalidade      Modalidade
+    maoDominante    MaoDominante? @map("mao_dominante")
+    dataCriacao     DateTime      @default(now()) @map("data_criacao") @db.Timestamptz(6)
+    dataAtualizacao DateTime      @updatedAt @map("data_atualizacao") @db.Timestamptz(6)
+}
