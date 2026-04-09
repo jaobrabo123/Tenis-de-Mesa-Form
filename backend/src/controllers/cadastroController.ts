@@ -16,4 +16,13 @@ export default class CadastroController {
         }
     }
 
+    static async vagasDisponiveis(_req: RequestCustomVS, res: Response, next: NextFunction){
+        try {
+            const data = await CadastroService.vagasDisponiveis();
+            ResponseVS(res, {data});
+        } catch (err) {
+            next(err);
+        }
+    }
+
 }

@@ -5,5 +5,6 @@ import CadastroController from '@controllers/cadastroController';
 const router = express.Router();
 
 router.post('/cadastro', RateLimit.cadastro, CadastroController.cadastro as RequestHandler);
+router.get('/cadastro/disponiveis', CadastroController.vagasDisponiveis as RequestHandler);
 
 export default router;

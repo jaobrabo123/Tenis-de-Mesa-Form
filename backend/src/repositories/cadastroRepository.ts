@@ -31,6 +31,10 @@ export default class CadastroRepository {
         });
     }
 
+    static async count(db: ClientOrTransaction = prisma){
+        return await db[this.TABLE_NAME].count();
+    }
+
     static async findUniqueByEmailContato(emailContato: string, db: ClientOrTransaction = prisma): Promise<Entity["model"] | null> {
         return await db[this.TABLE_NAME].findUnique({
             where: { emailContato },

@@ -7,6 +7,7 @@ import http from 'http';
 import corsConfig from '@configs/cors';
 import RateLimit from '@middlewares/rateLimit';
 import errorHandler from '@middlewares/errorHandler';
+import realIpHandler from '@middlewares/realIp';
 
 // * Server initialization
 const port = process.env.PORT || 2923;
@@ -26,7 +27,6 @@ app.use(cors(corsConfig));
 
 // * Importing Routes
 import routes from '@routes/index';
-import realIpHandler from '@middlewares/realIp';
 app.use(routes);
 
 // * Error handling

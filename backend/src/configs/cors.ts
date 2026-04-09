@@ -1,5 +1,5 @@
 // * CORS
-import { UnauthorizedError } from '@utils/errorClasses';
+import { ForbiddenError } from '@utils/errorClasses';
 import { CorsOptions } from 'cors';
 
 const allowedOrigins = ['http://localhost:5173'];
@@ -11,7 +11,7 @@ const corsConfig: CorsOptions = {
         if (allowedOrigins.includes(origin||'')) {
             callback(null, true);
         } else {
-            callback(new UnauthorizedError('Não permitido pelo CORS.', 'VS_CORS_BLOCK'));
+            callback(new ForbiddenError('Não permitido pelo CORS.', 'VS_CORS_BLOCK'));
         }
     },
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
