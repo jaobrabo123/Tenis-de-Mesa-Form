@@ -8,7 +8,12 @@ import { ConflictError, ServerError, ValidationError } from "@utils/errorClasses
 
 export default class CadastroService {
 
+    private static limiteAtingido = false;
+
     static async cadastro(dto: CadastroDTO) {
+
+        if(this.limiteAtingido)
+            throw new ValidationError("Limite de vagas atingido.");
 
         const maximoTentativas = 3;
         for (let tentativas = 1; tentativas <= maximoTentativas; tentativas++) {
@@ -17,8 +22,10 @@ export default class CadastroService {
                     const vagasPreenchidas = await CadastroRepository.count(tx);
                     const vagasDisponiveis = VAGAS_TOTAIS - vagasPreenchidas;
 
-                    if(vagasDisponiveis <= 0)
+                    if(vagasDisponiveis <= 0) {
+                        this.limiteAtingido = true;
                         throw new ValidationError("Limite de vagas atingido.");
+                    }
 
                     const existePorEmailContato = await CadastroRepository.existsByEmailContato(dto.emailContato, tx);
                     if (existePorEmailContato)
