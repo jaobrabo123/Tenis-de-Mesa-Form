@@ -1,26 +1,26 @@
 import { Link } from 'react-router-dom';
 import './app.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import api from './api';
 
 function App() {
 
   const [vagasDisponiveis, setVagasDisponiveis] = useState(null);
 
-  async function carregarVagasDisponiveis() {
-    try {
-      const response = await api('/cadastro/disponiveis');
-      console.log(response)
-      setVagasDisponiveis(response.data?.data?.vagasDisponiveis ?? 0);
-    } catch (err) {
-      console.error(err.response?.data)
-      setVagasDisponiveis(0);
-    } 
-  }
+  useEffect(()=>{
+    async function carregarVagasDisponiveis() {
+      try {
+        const response = await api('/cadastro/disponiveis');
+        console.log(response)
+        setVagasDisponiveis(response.data?.data?.vagasDisponiveis ?? 0);
+      } catch (err) {
+        console.error(err.response?.data)
+        setVagasDisponiveis(0);
+      } 
+    }
 
-  carregarVagasDisponiveis()
-
-  if(!vagasDisponiveis) return null;
+    carregarVagasDisponiveis()
+  }, []);
 
   return (
     <>     
