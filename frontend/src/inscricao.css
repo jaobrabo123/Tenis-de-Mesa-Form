@@ -1,0 +1,222 @@
+/* ===== PÁGINA DE INSCRIÇÃO ===== */
+.inscricao-page {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.inscricao-container {
+  background: light-dark(#ffffff, #0a0a0a);
+  border: 0.5px solid light-dark(rgba(0,0,0,0.08), rgba(255,255,255,0.08));
+  border-radius: var(--radius-xl);
+  padding: 2rem 1.5rem;
+  transition: all 0.2s;
+}
+
+.inscricao-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 0.5px solid light-dark(rgba(0,0,0,0.08), rgba(255,255,255,0.08));
+  position: relative;
+}
+
+.btn-voltar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: light-dark(#f6f6f4, #1a1a1a);
+  border: 0.5px solid light-dark(rgba(0,0,0,0.08), rgba(255,255,255,0.08));
+  color: light-dark(#111, #eee);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.btn-voltar:hover {
+  background: light-dark(#e0e0e0, #2a2a2a);
+}
+
+.inscricao-header h1 {
+  font-size: 24px;
+  font-weight: 500;
+  color: light-dark(#111, #eee);
+  margin-bottom: 0.5rem;
+}
+
+.inscricao-header p {
+  font-size: 14px;
+  color: light-dark(#666, #888);
+}
+
+/* Formulário */
+.inscricao-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.inscricao-form fieldset {
+  border: 0.5px solid light-dark(rgba(0,0,0,0.08), rgba(255,255,255,0.08));
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  background: light-dark(#fafafa, #0f0f0f);
+}
+
+.inscricao-form legend {
+  font-size: 16px;
+  font-weight: 500;
+  color: light-dark(#111, #eee);
+  padding: 0 1rem;
+  width: auto;
+  background: light-dark(#fafafa, #0f0f0f);
+  border-radius: var(--radius-full);
+  margin-left: -0.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.inscricao-form label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: light-dark(#333, #ddd);
+  margin-bottom: 0.5rem;
+}
+
+.inscricao-form input[type="text"],
+.inscricao-form input[type="email"],
+.inscricao-form input[type="tel"],
+.inscricao-form input[type="date"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: light-dark(#ffffff, #1a1a1a);
+  border: 0.5px solid light-dark(rgba(0,0,0,0.12), rgba(255,255,255,0.12));
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  color: light-dark(#111, #eee);
+  transition: all 0.15s;
+}
+
+.inscricao-form input:focus {
+  outline: none;
+  border-color: var(--hero-accent);
+  box-shadow: 0 0 0 2px rgba(110, 222, 110, 0.1);
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.radio-group.horizontal {
+  flex-direction: row;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s;
+  font-size: 13px;
+  color: light-dark(#555, #999);
+}
+
+.radio-option:hover {
+  background: light-dark(rgba(0,0,0,0.04), rgba(255,255,255,0.04));
+}
+
+.inscricao-form input[type="radio"] {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--hero-accent);
+}
+
+.inscricao-form small {
+  display: block;
+  font-size: 11px;
+  color: light-dark(#888, #666);
+  margin-top: 0.25rem;
+}
+
+.btn-submit {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #000f91cf;
+  color: #e8f8e8;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 28px;
+  border-radius: var(--radius-md);
+  border: 0.5px solid #000000;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.btn-submit:hover {
+  background: #0d00ff;
+  border-color: #0008ff;
+}
+
+.btn-submit:focus-visible {
+  outline: 2px solid #6ede6e;
+  outline-offset: 3px;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  .inscricao-page {
+    padding: 1rem;
+  }
+  
+  .inscricao-container {
+    padding: 1.5rem;
+  }
+  
+  .inscricao-form fieldset {
+    padding: 1rem;
+  }
+  
+  .radio-group.horizontal {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .btn-voltar {
+    position: static;
+    display: inline-flex;
+    margin-bottom: 1rem;
+  }
+  
+  .inscricao-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
