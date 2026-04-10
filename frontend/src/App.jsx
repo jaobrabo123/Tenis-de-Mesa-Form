@@ -1,7 +1,27 @@
 import { Link } from 'react-router-dom';
 import './app.css';
+import { useState } from 'react';
+import api from './api';
 
 function App() {
+
+  const [vagasDisponiveis, setVagasDisponiveis] = useState(null);
+
+  async function carregarVagasDisponiveis() {
+    try {
+      const response = await api('/cadastro/disponiveis');
+      console.log(response)
+      setVagasDisponiveis(response.data?.data?.vagasDisponiveis ?? 0);
+    } catch (err) {
+      console.error(err.response?.data)
+      setVagasDisponiveis(0);
+    } 
+  }
+
+  carregarVagasDisponiveis()
+
+  if(!vagasDisponiveis) return null;
+
   return (
     <>     
       <section id="hero" style={{ position: 'relative', minHeight: '480px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', borderRadius: '12px', background: '#04002b5f' }}> 
@@ -17,7 +37,7 @@ function App() {
       </section>
 
       <section id="stats">
-        <div className="stat-card"><span className="num">40</span><span className="label">Vagas disponíveis</span></div>
+        <div className="stat-card"><span className="num">{vagasDisponiveis}</span><span className="label">Vagas disponíveis</span></div>
         <div className="stat-card"><span className="num">18/04</span><span className="label">Data do evento</span></div>
         <div className="stat-card"><span className="num">4h</span><span className="label">De Duração</span></div>
       </section>

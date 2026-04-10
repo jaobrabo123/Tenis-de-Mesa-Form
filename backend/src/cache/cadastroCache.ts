@@ -21,7 +21,7 @@ export default class CadastroCache {
         if(this.todasVagasPreenchidas)
             return 0;
 
-        if(!vagasDisponiveisObj || !vagasDisponiveisObj.ultimaAtualizacao || vagasDisponiveisObj.ultimaAtualizacao < new Date(Date.now() - 5*60*1000)){
+        if(!vagasDisponiveisObj || !vagasDisponiveisObj.ultimaAtualizacao || vagasDisponiveisObj.ultimaAtualizacao < new Date(Date.now() - 1*60*1000)){
             console.log('atualizando vagas disponiveis');
             const vagasPreenchidas = await CadastroRepository.count();
             const vagasDisponiveis = VAGAS_TOTAIS - vagasPreenchidas;
