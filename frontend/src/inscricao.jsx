@@ -22,11 +22,10 @@ const Inscricao = () => {
         <div className="inscricao-header">
           <Link to="/" className="btn-voltar">← Voltar</Link>
           <h1>🏓 Formulário de Inscrição</h1>
-          <p>Torneio de Ping-Pong 2026</p>
+          <p>Torneio de Tenis de Mesa 2026</p>
         </div>
 
         <form className="inscricao-form">
-          {/* Dados basicos da pessoa*/}
           <fieldset>
             <legend>📋 Informações Básicas</legend>
 
@@ -52,7 +51,6 @@ const Inscricao = () => {
             </div>
           </fieldset>
 
-          {/* Categoria da Inscrição */}
           <fieldset>
             <legend>🎯 Categoria da Inscrição</legend>
             
@@ -75,7 +73,7 @@ const Inscricao = () => {
                   <span><strong>Avançado/Pro</strong>: Federado ou com experiência em torneios competitivos</span>
                 </label>
 
-                <label className="radio-option">
+                {/* <label className="radio-option">
                   <input type="radio" name="categoria" value="JUVENIL" checked={categoria === 'JUVENIL'} onChange={(e) => setCategoria(e.target.value)} />
                   <span><strong>Juvenil</strong>: Até 16 anos</span>
                 </label>
@@ -83,12 +81,11 @@ const Inscricao = () => {
                 <label className="radio-option">
                   <input type="radio" name="categoria" value="SENIOR" checked={categoria === 'SENIOR'} onChange={(e) => setCategoria(e.target.value)} />
                   <span><strong>Sênior</strong>: Acima de 50 anos</span>
-                </label>
+                </label> */}
               </div>
             </div>
           </fieldset>
 
-          {/* Modalidades */}
           <fieldset>
             <legend>🏆 Modalidade</legend>
 

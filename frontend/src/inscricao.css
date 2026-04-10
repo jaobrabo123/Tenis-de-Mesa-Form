@@ -1,4 +1,4 @@
-/* ===== PÁGINA DE INSCRIÇÃO ===== */
+
 .inscricao-page {
   max-width: 680px;
   margin: 0 auto;
@@ -189,7 +189,6 @@
   outline-offset: 3px;
 }
 
-/* Responsividade */
 @media (max-width: 480px) {
   .inscricao-page {
     padding: 1rem;

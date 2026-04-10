@@ -25,7 +25,7 @@ function App() {
   return (
     <>     
       <section id="hero" style={{ position: 'relative', minHeight: '480px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', borderRadius: '12px', background: '#04002b5f' }}> 
-        <img src="https://i.imgur.com/I3qbeQI.png" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.3 }} /> 
+        <img src="https://i.imgur.com/ChqkneB.png" alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.3 }} /> 
 
         <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', padding: '3rem 2rem' }}>
           <div style={{ fontSize: '40px', marginBottom: '1rem' }}>TORNEIO JOVEN TECH</div>
